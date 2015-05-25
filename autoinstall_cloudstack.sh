@@ -36,9 +36,9 @@ function install_common() {
     yum update -y
     sed -i -e 's/SELINUX=enforcing/SELINUX=permissive/g' /etc/selinux/config
     setenforce permissive
-    echo "[cloudstack]
+    echo "[cloudstack-4.5]
 name=cloudstack
-baseurl=http://cloudstack.apt-get.eu/rhel/4.5/
+baseurl=http://packages.shapeblue.com/cloudstack/upstream/centos/4.5
 enabled=1
 gpgcheck=0" > /etc/yum.repos.d/CloudStack.repo
     sed -i -e "s/localhost/$HOSTNAME localhost/" /etc/hosts
@@ -108,7 +108,7 @@ function initialize_storage() {
     sleep 10
     rm -rf /mnt/primary/*
     rm -rf /mnt/secondary/*
-    /usr/share/cloudstack-common/scripts/storage/secondary/cloud-install-sys-tmplt -m /mnt/secondary -u http://cloudstack.apt-get.eu/systemvm/4.5/systemvm64template-4.5-xen.vhd.bz2 -h xenserver -F
+    /usr/share/cloudstack-common/scripts/storage/secondary/cloud-install-sys-tmplt -m /mnt/secondary -u http://packages.shapeblue.com/systemvmtemplate/4.5/systemvm64template-4.5-xen.vhd.bz2 -h xenserver -F
     sync
     umount /mnt/primary
     umount /mnt/secondary
