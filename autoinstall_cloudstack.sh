@@ -108,7 +108,7 @@ function initialize_storage() {
     sleep 10
     rm -rf /mnt/primary/*
     rm -rf /mnt/secondary/*
-    /usr/share/cloudstack-common/scripts/storage/secondary/cloud-install-sys-tmplt -m /mnt/secondary -u http://packages.shapeblue.com/systemvmtemplate/4.5/systemvm64template-4.5-xen.vhd.bz2 -h xenserver -F
+    /usr/share/cloudstack-common/scripts/storage/secondary/cloud-install-sys-tmplt -m /mnt/secondary -u http://packages.shapeblue.com/systemvmtemplate/4.5/4.5.2/systemvm64template-4.5-xen.vhd.bz2 -h xenserver -F
     sync
     umount /mnt/primary
     umount /mnt/secondary
